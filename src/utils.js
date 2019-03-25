@@ -6,7 +6,8 @@ export const capitalize = s => {
 };
 
 export const getIdFromURL = url => {
-  if (url[url.length - 1] !== "/") return;
+  if (url === undefined) return "";
+  if (url[url.length - 1] !== "/") return "";
   let newUrl = url.split("/");
   return newUrl[newUrl.length - 2];
 };

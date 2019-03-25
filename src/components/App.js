@@ -5,8 +5,8 @@ import { Provider } from "react-redux";
 import reducers from "../reducers";
 import thunk from "redux-thunk";
 import { BrowserRouter, Route } from "react-router-dom";
-import SearchResults from "./SearchResults";
-import PokemonDetails from "./PokemonDetails";
+import SearchResultsContainer from "./SearchResultsContainer";
+import PokemonDetailsContainer from "./PokemonDetailsContainer";
 import Header from "./Header";
 
 const store = createStore(reducers, applyMiddleware(thunk));
@@ -18,8 +18,8 @@ class App extends React.Component {
         <BrowserRouter>
           <Header />
           <React.Fragment>
-            <Route path="/master" exact component={SearchResults} />
-            <Route path="/detail/:id" component={PokemonDetails} />
+            <Route path="/master" exact component={SearchResultsContainer} />
+            <Route path="/detail/:id" component={PokemonDetailsContainer} />
           </React.Fragment>
         </BrowserRouter>
       </div>

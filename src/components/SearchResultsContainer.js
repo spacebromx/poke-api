@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { fetchAllPokemons, resetSearchResults } from "../actions";
-import { Link } from "react-router-dom";
-import { getIdFromURL, capitalize } from "../utils";
+import SearchResult from "./SearchResult";
 
-class SearchResults extends React.Component {
+class SearchResultsContainer extends React.Component {
   componentDidMount() {
     this.props.fetchAllPokemons();
   }
@@ -14,27 +14,26 @@ class SearchResults extends React.Component {
   }
 
   render() {
+    const { searchResults } = this.props.data;
     return (
       <React.Fragment>
         <p>Click on any Pokemon name to see its details</p>
         <div className="list-group">
-          {this.props.data.searchResults.length &&
-            this.props.data.searchResults.map(item => {
-              return (
-                <Link
-                  key={item.name}
-                  to={`/detail/${getIdFromURL(item.url)}`}
-                  className="list-group-item list-group-item-action"
-                >
-                  {capitalize(item.name)}
-                </Link>
-              );
+          {searchResults.length &&
+            searchResults.map(item => {
+              return <SearchResult key={item.name} item={item} />;
             })}
         </div>
       </React.Fragment>
     );
   }
 }
+
+SearchResultsContainer.propTypes = {
+  fetchAllPokemons: PropTypes.func.isRequired,
+  resetSearchResults: PropTypes.func.isRequired,
+  data: PropTypes.object.isRequired
+};
 
 const mapStateToProps = ({ searchResults }) => ({
   data: searchResults
@@ -48,4 +47,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SearchResults);
+)(SearchResultsContainer);
