@@ -1,6 +1,8 @@
+import { FETCH_POKEMON_DETAIL } from "../constants";
+
 export default (state = { pokemonDetails: [] }, action) => {
   switch (action.type) {
-    case "FETCH_POKEMON_DETAIL":
+    case FETCH_POKEMON_DETAIL:
       return {
         ...state,
         pokemonDetails: {
