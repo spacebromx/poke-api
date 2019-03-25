@@ -1,19 +1,22 @@
 const initialState = {
-    searchResults: []
-}
+  searchResults: []
+};
 
 export default (state = initialState, action) => {
-    switch (action.type) {
-        case "FETCH_POKEMONS":
-            return {
-                ...state,
-                searchResults: [
-                    ...state.searchResults,
-                    ...action.payload
-                ]
-            }
+  switch (action.type) {
+    case "FETCH_POKEMONS":
+      return {
+        ...state,
+        searchResults: [...state.searchResults, ...action.payload]
+      };
 
-        default:
-            return state;
-    }
+    case "RESET_SEARCH_RESULTS":
+      return {
+        ...state,
+        searchResults: []
+      };
+
+    default:
+      return state;
+  }
 };
