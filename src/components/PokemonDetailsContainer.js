@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchPokemonDetails } from "../actions";
+import { fetchPokemonDetails } from "../modules/pokemonDetail";
 import PropTypes from "prop-types";
 import PokemonDetails from "./PokemonDetails";
 

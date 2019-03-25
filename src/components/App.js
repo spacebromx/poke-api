@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
-import reducers from "../reducers";
+import reducers from "../modules";
 import thunk from "redux-thunk";
 import { BrowserRouter, Route } from "react-router-dom";
 import SearchResultsContainer from "./SearchResultsContainer";

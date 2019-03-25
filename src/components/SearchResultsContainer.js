@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { fetchAllPokemons, resetSearchResults } from "../actions";
+import { fetchAllPokemons, resetSearchResults } from "../modules/searchResults";
 import SearchResult from "./SearchResult";
 
 class SearchResultsContainer extends React.Component {
